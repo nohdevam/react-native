@@ -3,29 +3,29 @@ import { StyleSheet, TextInput, Text, View, FlatList, Button, TouchableOpacity, 
 
 
 
-const LoginScreen = (props) => {
-    const [ userName, setUserName ] = useState('');
+const LoginScreen = ({route}) => {
+    const [ userName, setUserName ] = useState(route.params.userName);
     const [ password, setPassword ] = useState('');
 
         return (
-            <SafeAreaView>
-            <Text>veuillez saisir votre nom svp</Text>
+        <SafeAreaView>
+            <Text>Veuillez saisir votre nom svp</Text>
             <TextInput
                 autoCapitalize="none"
                 autoCorrect={false}
                 style={styles.inputText}
                 value={userName}
+                placeholder={userName}
                 onChangeText={(e) => setUserName(e.target.value)}
             />
-            <Text>veuillez saisir votre mot de passe svp</Text>
+            <Text>Veuillez saisir votre mot de passe svp</Text>
             <TextInput
                 autoCapitalize="none"
                 autoCorrect={false}
                 style={styles.inputText}
                 value={password}
-                onChangeText={(e) => setPassword(e.target.value)}
+                onChangeText={setPassword}
             />
-       
         </SafeAreaView>
             );
         };

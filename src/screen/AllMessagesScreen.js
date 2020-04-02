@@ -5,7 +5,7 @@ import WelcomScreen from './WelcomScreen';
 import LoginScreen from './LoginScreen';
 
 
-const AllMessagesScreen = (props) => {
+const AllMessagesScreen = ({route}) => {
 const [ listeVisible, setListeVisible ] = useState (false);
 const [ homeVisible, setHomeVisible ] = useState(false);
 const [ loginVisible, setLoginVisible ] = useState(false);
@@ -58,18 +58,7 @@ const data = [
 
     return (
         <SafeAreaView style={{ ...styles.container, marginTop: 60 }}>
-        <View style={{ flexDirection: 'row' }}>
-                <TouchableOpacity
-                    onPress={() => {
-                        hideAll();
-                        setHomeVisible(true);
-                    }}
-                    style={styles.clickable}
-                >
-                    
-                        <AntDesign name="home" style={{ fontSize: 32 }} />
-                    
-                </TouchableOpacity>
+            <View style={{ flexDirection: 'row' }}> 
                 <TouchableOpacity
                     onPress={() => {
                         hideAll();
@@ -77,20 +66,8 @@ const data = [
                     }}
                     style={styles.clickable}
                 >
-                
                 <AntDesign name="message1" style={{ fontSize: 32 }} />
 
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => {
-                        hideAll();
-                        setLoginVisible(true);
-                    }}
-                    style={styles.clickable}
-                >
-                    
-                    <AntDesign name="login" style={{ fontSize: 32 }} />
-                    
                 </TouchableOpacity>
             </View>
         
@@ -109,9 +86,6 @@ const data = [
             />
         ) : null}
 
-        {homeVisible ? <WelcomScreen /> : null}
-        
-        {loginVisible ? <LoginScreen /> : null}
     </SafeAreaView>
     );
 };
